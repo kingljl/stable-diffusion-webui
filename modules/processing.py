@@ -983,9 +983,9 @@ def process_images_inner(p: StableDiffusionProcessing) -> Processed:
     res = Processed(
         p,
         images_list=output_images,
-        seed=p.all_seeds[0],
-        info=infotexts[0],
-        subseed=p.all_subseeds[0],
+        seed=p.all_seeds[0] if len(p.all_seeds) > 0 else p.all_seeds,
+        info=infotexts[0] if len(infotexts) > 0 else infotexts,
+        subseed=p.all_subseeds[0] if len(p.all_subseeds) > 0 else p.all_subseeds,
         index_of_first_image=index_of_first_image,
         infotexts=infotexts,
     )
